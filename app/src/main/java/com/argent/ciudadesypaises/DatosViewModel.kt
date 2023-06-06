@@ -23,6 +23,7 @@ class DatosViewModel(private val repositorio:RepoTablas = Graph.repo): ViewModel
         viewModelScope.launch(Dispatchers.IO) {
             repositorio.puntos.collectLatest {
                 _estado.update { x -> x.copy(listaPuntos = it, listaVisible = it) }
+                //
             }
         }
     }
